@@ -1,0 +1,233 @@
+// Copyright 2025 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+cc_library_shared {
+    name: "libqpdf",
+
+    sdk_version: "current",
+    visibility: [
+        "//vendor:__subpackages__",
+        "//external/libcupsfilters",
+    ],
+    rtti: true,
+
+    cflags: [
+        "-fexceptions",
+        "-Wno-implicit-fallthrough",
+        "-Wno-non-virtual-dtor",
+        "-Wno-ignored-qualifiers",
+        "-Wno-unused-parameter",
+    ],
+
+    srcs: [
+        "libqpdf/BitStream.cc",
+        "libqpdf/BitWriter.cc",
+        "libqpdf/Buffer.cc",
+        "libqpdf/BufferInputSource.cc",
+        "libqpdf/ClosedFileInputSource.cc",
+        "libqpdf/ContentNormalizer.cc",
+        "libqpdf/CryptoRandomDataProvider.cc",
+        "libqpdf/FileInputSource.cc",
+        "libqpdf/InputSource.cc",
+        "libqpdf/InsecureRandomDataProvider.cc",
+        "libqpdf/JSON.cc",
+        "libqpdf/JSONHandler.cc",
+        "libqpdf/MD5.cc",
+        "libqpdf/NNTree.cc",
+        "libqpdf/OffsetInputSource.cc",
+        "libqpdf/PDFVersion.cc",
+        "libqpdf/Pipeline.cc",
+        "libqpdf/Pl_AES_PDF.cc",
+        "libqpdf/Pl_ASCII85Decoder.cc",
+        "libqpdf/Pl_ASCIIHexDecoder.cc",
+        "libqpdf/Pl_Base64.cc",
+        "libqpdf/Pl_Buffer.cc",
+        "libqpdf/Pl_Concatenate.cc",
+        "libqpdf/Pl_Count.cc",
+        "libqpdf/Pl_DCT.cc",
+        "libqpdf/Pl_Discard.cc",
+        "libqpdf/Pl_Flate.cc",
+        "libqpdf/Pl_Function.cc",
+        "libqpdf/Pl_LZWDecoder.cc",
+        "libqpdf/Pl_MD5.cc",
+        "libqpdf/Pl_OStream.cc",
+        "libqpdf/Pl_PNGFilter.cc",
+        "libqpdf/Pl_QPDFTokenizer.cc",
+        "libqpdf/Pl_RC4.cc",
+        "libqpdf/Pl_RunLength.cc",
+        "libqpdf/Pl_SHA2.cc",
+        "libqpdf/Pl_StdioFile.cc",
+        "libqpdf/Pl_String.cc",
+        "libqpdf/Pl_TIFFPredictor.cc",
+        "libqpdf/QPDF.cc",
+        "libqpdf/QPDFAcroFormDocumentHelper.cc",
+        "libqpdf/QPDFAnnotationObjectHelper.cc",
+        "libqpdf/QPDFArgParser.cc",
+        "libqpdf/QPDFCryptoProvider.cc",
+        "libqpdf/QPDFDocumentHelper.cc",
+        "libqpdf/QPDFEFStreamObjectHelper.cc",
+        "libqpdf/QPDFEmbeddedFileDocumentHelper.cc",
+        "libqpdf/QPDFExc.cc",
+        "libqpdf/QPDFFileSpecObjectHelper.cc",
+        "libqpdf/QPDFFormFieldObjectHelper.cc",
+        "libqpdf/QPDFJob.cc",
+        "libqpdf/QPDFJob_argv.cc",
+        "libqpdf/QPDFJob_config.cc",
+        "libqpdf/QPDFJob_json.cc",
+        "libqpdf/QPDFLogger.cc",
+        "libqpdf/QPDFMatrix.cc",
+        "libqpdf/QPDFNameTreeObjectHelper.cc",
+        "libqpdf/QPDFNumberTreeObjectHelper.cc",
+        "libqpdf/QPDFObject.cc",
+        "libqpdf/QPDFObjectHandle.cc",
+        "libqpdf/QPDFObjectHelper.cc",
+        "libqpdf/QPDFOutlineDocumentHelper.cc",
+        "libqpdf/QPDFOutlineObjectHelper.cc",
+        "libqpdf/QPDFPageDocumentHelper.cc",
+        "libqpdf/QPDFPageLabelDocumentHelper.cc",
+        "libqpdf/QPDFPageObjectHelper.cc",
+        "libqpdf/QPDFParser.cc",
+        "libqpdf/QPDFStreamFilter.cc",
+        "libqpdf/QPDFSystemError.cc",
+        "libqpdf/QPDFTokenizer.cc",
+        "libqpdf/QPDFUsage.cc",
+        "libqpdf/QPDFWriter.cc",
+        "libqpdf/QPDFXRefEntry.cc",
+        "libqpdf/QPDF_Array.cc",
+        "libqpdf/QPDF_Dictionary.cc",
+        "libqpdf/QPDF_Stream.cc",
+        "libqpdf/QPDF_String.cc",
+        "libqpdf/QPDF_encryption.cc",
+        "libqpdf/QPDF_json.cc",
+        "libqpdf/QPDF_linearization.cc",
+        "libqpdf/QPDF_optimization.cc",
+        "libqpdf/QPDF_pages.cc",
+        "libqpdf/QTC.cc",
+        "libqpdf/QUtil.cc",
+        "libqpdf/RC4.cc",
+        "libqpdf/ResourceFinder.cc",
+        "libqpdf/SecureRandomDataProvider.cc",
+        "libqpdf/SF_FlateLzwDecode.cc",
+        "libqpdf/qpdf-c.cc",
+        "libqpdf/qpdfjob-c.cc",
+        "libqpdf/qpdflogger-c.cc",
+        "libqpdf/QPDFCrypto_openssl.cc",
+    ],
+
+    export_include_dirs: [
+        "include",
+        "libqpdf",
+    ],
+
+    shared_libs: [
+        "libjpeg",
+        "libssl",
+        "libcrypto",
+        "libz",
+    ],
+}
+
+// Following defines unused files that are under licenses that are different
+// from default licenses.
+
+license {
+    name: "external_qpdf_license.unused.artistic-2",
+    visibility: [
+        "//visibility:private",
+    ],
+    license_kinds: [
+        "SPDX-license-identifier-Artistic-2.0",
+    ],
+    license_text: [
+        "Artistic-2.0",
+    ],
+}
+
+filegroup {
+    name: "qpdf.artistic-2",
+    visibility: [
+        "//visibility:private",
+    ],
+    licenses: [
+        "external_qpdf_license.unused.artistic-2",
+    ],
+    srcs: [
+        "Artistic-2.0",
+    ],
+}
+
+license {
+    name: "external_qpdf_license.unused.mit",
+    visibility: [
+        "//visibility:private",
+    ],
+    license_kinds: [
+        "SPDX-license-identifier-MIT",
+    ],
+    license_text: [
+        "LICENSE_MIT.TXT",
+    ],
+}
+
+filegroup {
+    name: "qpdf.mit",
+    visibility: [
+        "//visibility:private",
+    ],
+    licenses: [
+        "external_qpdf_license.unused.mit",
+    ],
+    srcs: [
+        "NOTICE.md",
+        "libqpdf/sha2.c",
+        "libqpdf/sha2big.c",
+        "libqpdf/sph/md_helper.c",
+        "libqpdf/sph/sph_sha2.h",
+        "libqpdf/sph/sph_types.h",
+    ],
+}
+
+license_kind {
+    name: "SPDX-license-identifier-RSA",
+    visibility: [
+        "//visibility:private",
+    ],
+    conditions: ["notice"],
+}
+
+license {
+    name: "external_qpdf_license.unused.rsa",
+    visibility: [
+        "//visibility:private",
+    ],
+    license_kinds: [
+        "SPDX-license-identifier-RSA",
+    ],
+    license_text: [
+        "LICENSE_RSA.TXT",
+    ],
+}
+
+filegroup {
+    name: "qpdf.rsa",
+    visibility: [
+        "//visibility:private",
+    ],
+    licenses: [
+        "external_qpdf_license.unused.rsa",
+    ],
+    srcs: [
+        "libqpdf/MD5_native.cc",
+    ],
+}
