@@ -1,0 +1,18 @@
+name: "qpdf"
+description:
+    "qpdf is a command-line tool and C++ library that performs "
+    "content-preserving transformations on PDF files."
+
+third_party {
+homepage: "https://qpdf.sourceforge.io/"
+  identifier {
+    type: "Git"
+    value: "https://github.com/qpdf/qpdf"
+    primary_source: true
+    version: "v12.0.0"
+  }
+  version: "v12.0.0"
+  last_upgrade_date { year: 2025 month: 3 day: 31 }
+  # Dual-licensed, using the least restrictive per go/thirdpartylicenses#same.
+  license_type: NOTICE
+}
