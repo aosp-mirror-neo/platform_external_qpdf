@@ -15,7 +15,6 @@
 cc_library_shared {
     name: "libqpdf",
 
-    sdk_version: "current",
     visibility: [
         "//vendor:__subpackages__",
         "//external/libcupsfilters",
