@@ -15,7 +15,8 @@ third_party {
   identifier {
     type: "Git"
     value: "https://github.com/qpdf/qpdf"
-    version: "v12.0.0"
+    version: "58d3ced4675646b06379522c6b536fe6150a1002"
+    closest_version: "v12.0.0"
     primary_source: true
   }
 }
